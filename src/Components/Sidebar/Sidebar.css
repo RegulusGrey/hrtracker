@@ -1,0 +1,30 @@
+.bg-custom-color {
+    background-color:slategray /* Replace with the desired shade of brown */
+  }
+
+.nav-pills li a:hover{
+    background-color:salmon;
+}
+
+.nav-pills li div:hover {
+  background-color:salmon;
+}
+
+.logos{
+  background-color:aliceblue;
+  opacity: 80%;
+  max-width: 100%;
+}
+
+.text{
+  color: #bebebe;
+} 
+
+.icon{
+  max-width: 100%;
+  max-height: auto;
+  object-fit: fill;
+  background-color:aliceblue;
+  opacity: 80%;
+}
+

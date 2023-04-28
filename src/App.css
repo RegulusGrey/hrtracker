@@ -1,0 +1,16 @@
+.main-content {
+  height: auto;
+  width: 69%;
+  float: right;
+  /* overflow-y: hidden !important; */
+  overflow-x: hidden;
+}
+
+.main-bg {
+  background-color: rgb(255 141 1);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: auto;
+  width: 100vw;
+  overflow-y: scroll;
+}

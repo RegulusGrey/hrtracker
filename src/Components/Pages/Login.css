@@ -1,0 +1,30 @@
+
+.body {
+  display: flex;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 100%;
+}
+
+.form-signin {
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+  border-style: solid;
+  border-radius: 5px;
+  border-color: brown;
+  background-color: #eeeeeec2;
+}
+
+.form-signin .form-floating:focus-within {
+  z-index: 2;
+}
+
+.logo{
+    background-color:aliceblue;
+    opacity: 80%;
+    max-width: 50%;
+  }
+
+  
