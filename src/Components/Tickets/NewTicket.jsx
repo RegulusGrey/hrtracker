@@ -84,7 +84,7 @@ export default function NewTicket(props) {
         employeeId: empID,
         assigneeId: selectedAsignee,
         creationDate: getFormattedDate(new Date(dateCreation), "/"),
-        statusId: 0,
+        statusId: 1,
         filePath: file
       })
       console.log(response.data)
@@ -116,13 +116,6 @@ export default function NewTicket(props) {
     ]
     const foundRole = role.find((r) => r.id === roleId);
     return foundRole && foundRole.name;
-  }
-
-  function validateDates(dateCreation, dueDate) {
-    if (new Date(dateCreation) >= new Date(dueDate)) {
-      return "Due date should be greater than the date of creation";
-    }
-    return "";
   }
 
 

@@ -4,7 +4,6 @@ import axiosInc from '../Axios/Axios';
 
 export default function UpdateEmployee(props) {
   const [validated, setValidated] = useState(false);
-  const [password, setPassword] = useState('');
   const [role, setRole] = useState('');
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
@@ -21,20 +20,36 @@ export default function UpdateEmployee(props) {
     setValidated(true);
 
     try {
-      const response = await axiosInc.post("/user/create", {
+      const response = await axiosInc.post("/user/update", {
         employeeEmail: email,
         employeeName: name,
-        employeePassword: password,
         employeeRole: role
       })
       console.log(response.data)
+
     } catch (error) {
       console.log(error.response.data)
     }
   }
 
+  const fetchUser = async () => {
+    try{
+      const response = await axiosInc.get(`/user/userbyid/${props.employeeId}`)
+      console.log(response.data)
+      localStorage.setItem("employee", JSON.stringify(response.data))
+    }catch(error){
+      console.log(error.response.data)
+    }
+  }
+
   useEffect(() => {
-    setPassword("12345")
+    fetchUser()
+    .then (() =>{
+      const employee = JSON.parse(localStorage.getItem("employee"))
+      setEmail(employee.employeeEmail)
+      setName(employee.employeeName)
+      setRole(employee.employeeRole)
+    })
   }, []);
   return (
     <>
@@ -47,7 +62,7 @@ export default function UpdateEmployee(props) {
         backdrop="static"
       >
         <Modal.Header >
-          <Modal.Title>New Employee</Modal.Title>
+          <Modal.Title>Update Employee</Modal.Title>
         </Modal.Header>
         <Form onSubmit={handleSubmit}>
           <Modal.Body>
@@ -57,6 +72,7 @@ export default function UpdateEmployee(props) {
                 required
                 type="email"
                 value={email}
+                defaultValue={email}
                 onChange={(event) => setEmail(event.target.value)}
                 placeholder="Enter Email"
               />
@@ -70,6 +86,7 @@ export default function UpdateEmployee(props) {
                 required
                 type="text"
                 value={name}
+                defaultValue={name}
                 onChange={(event) => setName(event.target.value)}
                 placeholder="Enter Name"
               />
@@ -82,6 +99,7 @@ export default function UpdateEmployee(props) {
                 <Form.Label className='fw-bold'>Role</Form.Label>
                 <Form.Select required aria-label="Floating label select HR"
                   value={role}
+                  defaultValue={role}
                   onChange={(event) => setRole(event.target.value)}
                 >
                   <option value="">Choose...</option>

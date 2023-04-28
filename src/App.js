@@ -8,8 +8,7 @@ import ForgotPassword from './Components/Pages/ForgotPassword';
 import ResetPassword from './Components/Pages/ResetPassword';
 import Verification from './Components/Pages/Verification';
 import Sidebar from './Components/Sidebar/Sidebar';
-
-import ExportTicket from './Components/Tickets/ExportTicket';
+import PrivacySettings from './Components/Pages/PrivacySettings';
 
 function App() {
   return (
@@ -24,7 +23,7 @@ function App() {
         <Route path='/ResetPassword' element={<ResetPassword />}/>
         <Route path='/Verification' element={<Verification />}/>
         <Route path='/Sidebar' element={<Sidebar />}/>
-        <Route path='/ExportTicket' element={<ExportTicket />}/>
+        <Route path='/PrivacySettings' element={<PrivacySettings />}/>
       
       </Routes>
     </Router>

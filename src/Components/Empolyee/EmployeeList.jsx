@@ -75,6 +75,10 @@ export default function EmployeeList() {
 
                                 <td className='align-middle text-center'>
                                     <ButtonGroup >
+                                        <Button variant="outline-success" size='sm' className='me-2'
+                                            onClick={() => handleEmployee(employee.employeeID, "Update")}>
+                                                <i class="bi bi-pencil-square"></i>
+                                        </Button>
                                         <Button variant="outline-danger" size='sm'
                                             onClick={() => handleEmployee(employee.employeeID, "Delete")}>
                                             <i class="bi bi-trash-fill"></i>
@@ -99,6 +103,14 @@ export default function EmployeeList() {
                 <NewEmployee
                     show={newShow}
                     setShow={setNewShow}
+                />
+            }
+            {
+                show &&
+                <UpdateEmployee
+                    show={show}
+                    setShow={setShow}
+                    employeeId={empId}
                 />
             }
         </div>

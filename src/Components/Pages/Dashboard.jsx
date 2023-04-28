@@ -2,6 +2,7 @@ import React from 'react'
 import Sidebar from '../Sidebar/Sidebar'
 import TicketList from '../Tickets/TicketList'
 import { Col, Container, Row, Button, ButtonToolbar, InputGroup, FormControl } from 'react-bootstrap'
+import ChangePassword from '../Empolyee/ChangePassword'
 
 export default function Dashboard() {
   return (

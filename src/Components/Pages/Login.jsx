@@ -26,6 +26,8 @@ export default function Login() {
                 // Store employee data in local storage
                 localStorage.setItem("employeeData", JSON.stringify(response.data));
 
+                setError("Successfull Login")
+
                 setTimeout(() => {
                     navigate("/Dashboard");
                 }, 2000);
@@ -48,7 +50,7 @@ export default function Login() {
                             <Form.Floating>
                                 <Form.Control
                                     placeholder='Email'
-                                    type="text"
+                                    type="email"
                                     value={email}
                                     onChange={(event) => setEmail(event.target.value)}
                                     required
@@ -73,7 +75,7 @@ export default function Login() {
                                 Forgot Password?
                             </Link>
                         </div>
-                        {error && <Alert variant="danger">{error}</Alert>}
+                        {error === "Successfull Login" ? <Alert variant="success">{error}</Alert> : error && <Alert variant="danger">{error}</Alert>} 
                         <Button className='w-100' size='lg' variant="primary" type="submit">
                             Login
                         </Button>

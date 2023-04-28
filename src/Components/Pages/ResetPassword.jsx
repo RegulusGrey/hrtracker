@@ -25,6 +25,8 @@ export default function ResetPassword() {
 
         if (response.data !== null) {
           console.log(response.data);
+          
+          setError("Success")
 
           setTimeout(() => {
             navigate("/Login");
@@ -70,7 +72,7 @@ export default function ResetPassword() {
               </Form.Floating>
             </Form.Group>
 
-            {error && <Alert variant="danger">{error}</Alert>}
+            {error === "Success" ? <Alert variant="success">{error}</Alert> : error && <Alert variant="danger">{error}</Alert>}
             <Button className='w-100' size='lg' variant="primary" type="submit">
               Save
             </Button>

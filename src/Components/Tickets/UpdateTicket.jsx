@@ -99,8 +99,7 @@ export default function UpdateTicket(props) {
 
   const handleFileSelect = (event) => {
     const file = event.target.files[0];
-    console.log("file", file.name);
-    setFile("C:\\Users\\MY PC\\OneDrive\Desktop\\Alliance project\\FrontEnd - Template\\HRTracker-backend\\Attachments\\" + file.name);
+    setFile(file.name);
   };
 
 

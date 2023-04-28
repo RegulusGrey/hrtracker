@@ -20,8 +20,10 @@ export default function ForgotPassword() {
 
       console.log(response.data);
 
-      if (response.data !== null) {
+      if (response.data !== "Email not registered") {
         localStorage.setItem("employeeData", JSON.stringify(response.data));
+        
+        setError("Verification Sent");
 
         setTimeout(() => {
           navigate("/Verification");
@@ -45,7 +47,7 @@ export default function ForgotPassword() {
               <Form.Floating>
                 <Form.Control
                   placeholder='Email'
-                  type="text"
+                  type="email"
                   value={email}
                   onChange={(event) => setEmail(event.target.value)}
                   required
@@ -53,7 +55,7 @@ export default function ForgotPassword() {
                 <Form.Label htmlFor='floatingName'>Email</Form.Label>
               </Form.Floating>
             </Form.Group>
-            {error && <Alert variant="danger">{error}</Alert>}
+            {error === "Verification Sent" ? <Alert variant="success">{error}</Alert> : error && <Alert variant="danger">{error}</Alert>}
             <Button className='w-100' size='lg' variant="primary" type="submit">
               Verify
             </Button>

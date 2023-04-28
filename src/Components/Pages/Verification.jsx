@@ -21,10 +21,13 @@ export default function Verification() {
             console.log(response)
             if (response.data) {
 
+                setError("Success")
+
                 setTimeout(() => {
                     navigate("/ResetPassword");
                 }, 2000);
-            }
+            }else 
+                setError("Wrong Credentials")
         } catch (error) {
             console.log(error.response.data);
         }
@@ -40,7 +43,6 @@ export default function Verification() {
                         <Form.Group className='mb-3'>
                             <Form.Floating>
                                 <Form.Control
-                                    placeholder='Email'
                                     type="text"
                                     value={vcCode}
                                     onChange={(event) => setVcCode(event.target.value)}
@@ -49,7 +51,7 @@ export default function Verification() {
                                 <Form.Label htmlFor='floatingName'>Enter Verification Code</Form.Label>
                             </Form.Floating>
                         </Form.Group>
-                        {error && <Alert variant="danger">{error}</Alert>}
+                        {error === "Success" ? <Alert variant="Success">{error}</Alert> : error && <Alert variant="danger">{error}</Alert>}
                         <Button className='w-100' size='lg' variant="primary" type="submit">
                             Verify
                         </Button>

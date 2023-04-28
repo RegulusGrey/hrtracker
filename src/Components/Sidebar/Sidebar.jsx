@@ -23,6 +23,7 @@ export default function Sidebar() {
                         <a className='text-decoration-none d-inline-flex d-sm-none align-itemcenter mt-4'>
                             <img src={icon} className="icon d-sm-inline ms-2" alt='icon' />
                         </a>
+                        <h5>HR Request Tracker</h5>
                         <hr className='text-black' />
                         <ul className="nav nav-pills flex-column mt-3 mt-sm-3">
                             <li className="nav-item fs-4 my-1 py-2 py-sm-0">
@@ -61,7 +62,7 @@ export default function Sidebar() {
                             <a className="dropdown-item" href="#">
                                 <span className='d-xl-none'>{empID}</span>
                                 <span className='d-none d-sm-block'>{empID}</span></a>
-                            <a className="dropdown-item" href="/UpdateEmployee">
+                            <a className="dropdown-item" href="/PrivacySettings">
                                 <span className='d-xl-none'>Change Password</span>
                                 <span className='d-none d-sm-block'>Change Password</span></a>
                             <a className="dropdown-item" href="#">
